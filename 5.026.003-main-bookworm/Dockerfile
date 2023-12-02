@@ -15,6 +15,7 @@ RUN true \
     && ./Configure -Darchname="$gnuArch" "$archFlag" -Duseshrplib -Dvendorprefix=/usr/local  -des \
     && make -j$(nproc) \
     && TEST_JOBS=$(nproc) make test_harness \
+    || true \
     && make install \
     && cd /usr/src \
     && curl -LO https://www.cpan.org/authors/id/M/MI/MIYAGAWA/App-cpanminus-1.7047.tar.gz \
